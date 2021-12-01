@@ -23,10 +23,31 @@ services:
     build:
       context: docker/api
       dockerfile: Dockerfile
+    environment:
+      DATABASE_CLIENT: mysql
+      DATABASE_HOST: mariadb
+      DATABASE_PORT: 3306
+      DATABASE_NAME: strapi
+      DATABASE_USERNAME: strapi
+      DATABASE_PASSWORD: strapi
+      DATABASE_SSL: 'false'
     volumes:
       - ./api:/var/www/api
     ports:
       - 1337:1337
+    depends_on:
+      - mariadb
+  mariadb:
+    image: mariadb:latest
+    volumes:
+      - database:/var/lib/mariadb
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: strapi
+      MYSQL_DATABASE: strapi
+      MYSQL_USER: strapi
+      MYSQL_PASSWORD: strapi
   # Nuxt
   client:
     build:
@@ -34,3 +55,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./client:/var/www/client
+
+volumes:
+  database:
+    driver: local
