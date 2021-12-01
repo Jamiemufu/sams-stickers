@@ -1,0 +1,36 @@
+version: '3'
+
+######### Services ###################################
+
+services:
+  # Server container
+  nginx:
+    build:
+      context: docker/nginx
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/var/www
+    ports:
+      # Client port
+      - 80:80
+      # Strapi Port
+      - 81:81
+    links:
+      - client
+      - api
+  # Strapi
+  api:
+    build:
+      context: docker/api
+      dockerfile: Dockerfile
+    volumes:
+      - ./api:/var/www/api
+    ports:
+      - 1337:1337
+  # Nuxt
+  client:
+    build:
+      context: docker/client
+      dockerfile: Dockerfile
+    volumes:
+      - ./client:/var/www/client
