@@ -13,8 +13,7 @@ services:
     ports:
       # Client port
       - 80:80
-      # Strapi Port
-      - 81:81
+      - 1337:1337
     links:
       - client
       - api
@@ -33,8 +32,6 @@ services:
       DATABASE_SSL: 'false'
     volumes:
       - ./api:/var/www/api
-    ports:
-      - 1337:1337
     depends_on:
       - mariadb
   mariadb:

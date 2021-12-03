@@ -10,7 +10,10 @@
     "test": "jest"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/composition-api": "^0.31.0",
+    "@nuxtjs/proxy": "^2.1.0",
+    "@nuxtjs/strapi": "^0.3.4",
     "core-js": "^3.15.1",
     "nuxt": "^2.15.7"
   },
@@ -21,6 +24,8 @@
     "babel-jest": "^27.0.5",
     "jest": "^27.0.5",
     "postcss": "^8.3.5",
+    "sass": "^1.44.0",
+    "sass-loader": "10",
     "vue-jest": "^3.0.4"
   }
 }
