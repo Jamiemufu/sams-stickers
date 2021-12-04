@@ -1,19 +1,35 @@
 <template>
-  <div class="sticker">{{ sticker }}</div>
+  <div>
+    <h1>Sticker here</h1>
+    {{ title }}
+    {{ price }}
+  </div>
 </template>
 
 <script>
 import { ref, useFetch, useRoute } from "@nuxtjs/composition-api";
 export default {
-  name: "_id",
   setup() {
-    const sticker = ref();
+    const title = ref(), price = ref();
     const route = useRoute();
-    useFetch(async ({ $axios }) => {
-      sticker.value = await $axios.$get('stickers', route.value.params.id,)
-      });
 
-    return { sticker };
+    useFetch(async ({ $axios }) => {
+      await $axios
+        .$get(`/stickers?filters[slug][$eq]=${route.value.params.id}`, {
+          params: {
+            populate: "*",
+          },
+        })
+        .then(({ data }) => {
+          title.value = data[0].attributes.Title;
+          price.value = data[0].attributes.Price;
+        });
+    });
+
+    return { 
+      title,
+      price
+    };
   },
 };
 </script>

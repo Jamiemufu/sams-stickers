@@ -11,6 +11,7 @@
     </p>
   </footer>
 </template>
+
 <script>
 export default {
   name: "TheFooter",
@@ -22,6 +23,7 @@ export default {
   },
   setup(props) {
     const { Copyright } = props.footer.data.attributes;
+    
     return {
       Copyright,
     };
