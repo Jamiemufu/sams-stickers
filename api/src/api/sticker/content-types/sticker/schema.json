@@ -36,6 +36,9 @@
     },
     "Sizes": {
       "type": "json"
+    },
+    "slug": {
+      "type": "uid"
     }
   }
 }

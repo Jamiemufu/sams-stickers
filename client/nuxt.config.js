@@ -15,7 +15,7 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com" },
-      { href: "https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Satisfy&display=swap", rel: "stylesheet" },
+      { href: "https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Permanent+Marker&family=Satisfy&display=swap", rel: "stylesheet" },
     ]
   },
 
@@ -50,13 +50,16 @@ export default {
     '@nuxtjs/strapi',
   ],
 
-  strapi: {
-    url: 'http://api:1337/api/',
-    entities: [
-      'header',
-      'footer',
-      'stickers',
-    ],
+  publicRuntimeConfig: {
+    axios: {
+      browserBaseURL: process.env.BROWSER_BASE_URL
+    }
+  },
+
+  privateRuntimeConfig: {
+    axios: {
+      baseURL: process.env.BASE_URL
+    }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

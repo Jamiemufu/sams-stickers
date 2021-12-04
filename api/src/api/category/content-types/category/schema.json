@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categories",
+  "info": {
+    "singularName": "category",
+    "pluralName": "categories",
+    "displayName": "Category",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "stickers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sticker.sticker"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "slug": {
+      "type": "uid"
+    }
+  }
+}
