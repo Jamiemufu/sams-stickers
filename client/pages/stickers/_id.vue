@@ -9,8 +9,8 @@ export default {
   setup() {
     const sticker = ref();
     const route = useRoute();
-    useFetch(async ({ $strapi }) => {
-      sticker.value = await $strapi.findOne('stickers', route.value.params.id,)
+    useFetch(async ({ $axios }) => {
+      sticker.value = await $axios.$get('stickers', route.value.params.id,)
       });
 
     return { sticker };

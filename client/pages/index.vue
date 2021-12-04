@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>INDEX</h1>
+  <div class="[] [ p-10 ]">
+    <h1>Content will be here</h1>
   </div>
 </template>
 

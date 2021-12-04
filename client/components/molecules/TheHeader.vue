@@ -1,14 +1,16 @@
 <template>
-  <header class="[] [ flex p-5 ]">
-    <div class="[ header__logo] [ flex justify-center items-center ]">
+  <header class="[] [ py-4 ]">
+    <div class="[ header__logo ] [ flex flex-wrap justify-start items-center ]">
       <img
         :src="logo.url"
         :alt="logo.alt"
-        width="60"
-        class="[] [ mx-auto ]"
+        width="40"
       />
-      <h5 class="[] [ p-1 font-bold text-1xl ]">{{ title }}</h5>
+      <h5 class="[ header__title ] [ p-1 text-xl text-center font-bold text-gray-800 ]">{{ title }}</h5>
     </div>
+    <nav class="[] []">
+      <Categories />
+    </nav>
   </header>
 </template>
 <script>
