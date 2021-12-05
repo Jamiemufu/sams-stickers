@@ -12,11 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "stickers": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::sticker.sticker"
-    },
     "Title": {
       "type": "string"
     },
@@ -25,6 +20,12 @@
     },
     "slug": {
       "type": "uid"
+    },
+    "stickers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::sticker.sticker",
+      "mappedBy": "categories"
     }
   }
 }

@@ -10,17 +10,19 @@
 import { ref, useFetch, useRoute } from "@nuxtjs/composition-api";
 export default {
   setup() {
-    const title = ref(), price = ref();
+    const title = ref(), price = ref(), sticker = ref();
     const route = useRoute();
 
     useFetch(async ({ $axios }) => {
       await $axios
-        .$get(`/stickers?filters[slug][$eq]=${route.value.params.id}`, {
+        .$get('/stickers', {
           params: {
-            populate: "*",
+            populate: 'sticker',
+            "filters[slug][$eq]": route.value.params.id
           },
         })
         .then(({ data }) => {
+          sticker.value = data[0];
           title.value = data[0].attributes.Title;
           price.value = data[0].attributes.Price;
         });
@@ -28,7 +30,8 @@ export default {
 
     return { 
       title,
-      price
+      price,
+      sticker
     };
   },
 };

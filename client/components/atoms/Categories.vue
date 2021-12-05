@@ -18,14 +18,8 @@ export default {
   name: "Categories",
   setup() {
     const { $axios } = useContext();
-    
-    const categories = useAsync(() =>
-      $axios.$get("categories", {
-        params: {
-          include: "*",
-        },
-      })
-    );
+
+    const categories = useAsync(() => $axios.$get("categories"));
 
     return {
       categories,

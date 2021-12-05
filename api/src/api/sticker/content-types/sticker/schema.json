@@ -15,14 +15,12 @@
     "Title": {
       "type": "string"
     },
-    "Image": {
+    "sticker": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "required": false,
       "allowedTypes": [
-        "images",
-        "files",
-        "videos"
+        "images"
       ]
     },
     "Price": {
@@ -38,7 +36,14 @@
       "type": "json"
     },
     "slug": {
-      "type": "uid"
+      "type": "uid",
+      "required": true
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "stickers"
     }
   }
 }
