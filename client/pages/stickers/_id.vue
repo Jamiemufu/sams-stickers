@@ -1,37 +1,28 @@
 <template>
   <div>
     <h1>Sticker here</h1>
-    {{ title }}
-    {{ price }}
+    {{ sticker }}
   </div>
 </template>
 
 <script>
 import { ref, useFetch, useRoute } from "@nuxtjs/composition-api";
+import { flattenSingleSticker } from "~/utils/flatten";
+import { queryNestedAndFilterBySlug } from "~/utils/queries";
 export default {
   setup() {
-    const title = ref(), price = ref(), sticker = ref();
+    const sticker = ref();
     const route = useRoute();
+    const params = queryNestedAndFilterBySlug("sticker", route.value.params.id);
 
     useFetch(async ({ $axios }) => {
-      await $axios
-        .$get('/stickers', {
-          params: {
-            populate: 'sticker',
-            "filters[slug][$eq]": route.value.params.id
-          },
-        })
-        .then(({ data }) => {
-          sticker.value = data[0];
-          title.value = data[0].attributes.Title;
-          price.value = data[0].attributes.Price;
-        });
+      const { data: query } = await $axios.$get("/stickers", params);
+
+      sticker.value = flattenSingleSticker(query);
     });
 
-    return { 
-      title,
-      price,
-      sticker
+    return {
+      sticker,
     };
   },
 };

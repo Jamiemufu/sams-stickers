@@ -1,18 +1,7 @@
 <template>
   <header class="[] [ py-4 ]">
-    <div class="[] [ flex flex-wrap justify-start items-center ]">
-      <nuxt-link to="/">
-        <img :src="logo.url" :alt="logo.alt" width="40" />
-      </nuxt-link>
-      <nuxt-link to="/">
-        <h5 class="[] [ p-1 text-xl text-center font-bold text-gray-800 ]">
-          {{ title }}
-        </h5>
-      </nuxt-link>
-    </div>
-    <nav>
-      <Categories />
-    </nav>
+    <TheLogo :logo="logo" :title="title" />
+    <TheNav />
   </header>
 </template>
 

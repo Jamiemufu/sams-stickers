@@ -1,5 +1,5 @@
 <template>
-  <footer class="[ footer ] [ flex flex-wrap justify-between items-center ]">
+  <footer class="[] [ flex flex-wrap justify-between items-center ]">
     <p v-html="Copyright" class="[] [ text-sm text-gray-700 py-2 ]">
       <!-- Copyright text here -->
     </p>
@@ -23,12 +23,10 @@ export default {
   },
   setup(props) {
     const { Copyright } = props.footer.data.attributes;
-    
+
     return {
       Copyright,
     };
   },
 };
 </script>
-<style lang="scss">
-</style>

@@ -1,21 +1,23 @@
 <template>
   <ul>
-    <h1>display stickers for category here</h1>
-
     <li v-for="sticker in stickers" :key="sticker.id">
-      <nuxt-link :to="`/stickers/${sticker.attributes.slug}`">
-        {{ sticker.attributes.Title }}
-        {{ sticker.attributes.Price }}
+      <nuxt-link :to="`/stickers/${sticker.slug}`">
+        {{ sticker.Title }}
+        {{ sticker.Price }}
       </nuxt-link>
     </li>
   </ul>
 </template>
+
 <script>
 import { useFetch, useRoute, ref } from "@nuxtjs/composition-api";
+import { flattenStickers }  from "~/utils/flatten";
+import { queryNestedAndFilterByCategory } from "~/utils/queries";
 export default {
   setup() {
     const route = useRoute();
     const stickers = ref();
+    const params = queryNestedAndFilterByCategory('sticker',route.value.params.id);
     /**
      * Query for stickers that belongs to category from slug
      * populate stickers - add media relationship to response
@@ -24,15 +26,9 @@ export default {
      * There must be a better way to do this...
      */
     useFetch(async ({ $axios }) => {
-      await $axios.$get("stickers", {
-        params: {
-          populate: "sticker",
-          "filters[categories][slug][$containsi]": route.value.params.id,
-        },
-      })
-      .then(({data}) => {
-        stickers.value = data;
-      });
+      const { data: query } = await $axios.$get("stickers", params);
+      // map new array of stickers
+      stickers.value = flattenStickers(query);
     });
 
     return {
