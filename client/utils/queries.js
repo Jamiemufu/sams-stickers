@@ -29,3 +29,16 @@ export const queryNestedAndFilterBySlug = (entryType, slug) => {
         }
     }
   }
+
+  /**
+   * Return populated relationship for sticker
+   * 
+   * @returns params
+   */
+  export const queryNestedStickerEntry = () => {
+    return {
+      params: {
+        populate: 'sticker'
+      }
+    }
+  }

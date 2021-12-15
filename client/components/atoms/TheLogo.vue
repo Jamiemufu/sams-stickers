@@ -1,6 +1,6 @@
 <template>
   <div class="[] [ flex flex-wrap justify-start items-center ]">
-    <nuxt-link to="/">
+    <nuxt-link to="/" v-if="$props.logo">
       <img :src="logo.url" :alt="logo.alt" width="40" />
     </nuxt-link>
     <nuxt-link to="/">
@@ -17,14 +17,11 @@ export default {
   props: {
     title: {
       type: String,
-      default: "",
+      default: "Sam's Stickers",
     },
     logo: {
       type: Object,
-      default: {
-        url: "/static/images/logo.png",
-        alt: "",
-      },
+      required: false,
     },
   },
 };

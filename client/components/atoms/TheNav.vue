@@ -17,7 +17,7 @@
 <script>
 import { useAsync, useContext } from "@nuxtjs/composition-api";
 export default {
-  name: "Categories",
+  name: "TheNav",
   setup() {
     const { $axios } = useContext();
 

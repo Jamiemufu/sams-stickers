@@ -6,6 +6,3 @@ WORKDIR /var/www/api
 
 # Configure host
 ENV HOST 0.0.0.0
-
-# Init command
-CMD ["sh", "-c", "yarn install && yarn run develop"]

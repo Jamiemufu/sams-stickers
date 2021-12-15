@@ -17,12 +17,13 @@ export default {
   },
   setup(props) {
     const { Title: title, Picture: picture } = props.header.data.attributes;
-    const logo = {
+    // conditional check for image with logo
+    const logo = picture.data?.attributes ? {
       url: getStrapiMedia(picture.data.attributes.url),
       alt: picture.data.attributes.alternativeText,
-    };
+    } : null
 
-    return {
+    return { 
       title,
       logo,
     };

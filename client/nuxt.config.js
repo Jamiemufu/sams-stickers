@@ -29,6 +29,14 @@ export default {
   plugins: [
   ],
 
+  // added for WSL2 bug
+  watchers: {
+    webpack: {
+      aggregateTimeout: 300,
+      poll: 1000
+    }
+  },
+  
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: [
     '@/components/atoms/',
