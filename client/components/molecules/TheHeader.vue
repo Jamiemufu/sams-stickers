@@ -1,5 +1,5 @@
 <template>
-  <header class="[] [ py-4 ]">
+  <header class="[ header ] []">
     <TheLogo :logo="logo" :title="title" />
     <TheNav />
   </header>
@@ -30,3 +30,14 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+.header {
+  width: 100%;
+  padding: 10px 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+</style>

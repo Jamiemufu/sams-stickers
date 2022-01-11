@@ -27,6 +27,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/plugins/axios'
   ],
 
   // added for WSL2 bug
@@ -50,13 +51,26 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
     '@nuxtjs/composition-api/module',
+    '@nuxtjs/style-resources',
+    '@nuxtjs/fontawesome',
   ],
 
+  styleResources: {
+    // your settings here
+    scss: ['~/assets/css/_colors.scss'],
+    hoistUseStatements: true  // Hoists the "@use" imports. Applies only 
+  },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/strapi',
   ],
+
+  fontawesome: {
+    icons: {
+      solid: ['faSearch', 'faUserCircle', 'faShoppingCart', 'faCaretDown'],
+    }
+  },
 
   publicRuntimeConfig: {
     axios: {

@@ -1,10 +1,10 @@
 <template>
-  <div class="[] [ flex flex-wrap justify-start items-center ]">
+  <div class="[ logo-header ] [ ]">
     <nuxt-link to="/" v-if="$props.logo">
       <img :src="logo.url" :alt="logo.alt" width="40" />
     </nuxt-link>
     <nuxt-link to="/">
-      <h5 class="[] [ p-1 text-xl text-center font-bold text-gray-800 ]">
+      <h5 class="[ logo-header__title ] []">
         {{ title }}
       </h5>
     </nuxt-link>
@@ -26,3 +26,12 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+  .logo-header {
+    color: orange;
+
+    &__title {
+      font-size: 24px;
+    }
+  }
+</style>

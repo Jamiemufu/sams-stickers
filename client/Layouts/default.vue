@@ -1,5 +1,5 @@
 <template>
-  <div class="[] [ container mx-auto ]">
+  <div class="[] []">
     <TheHeader :header="header" />
     <Nuxt />
     <TheFooter :footer="footer" />
@@ -10,16 +10,16 @@
 import { useContext, useAsync } from "@nuxtjs/composition-api";
 export default {
   setup() {
-    const { $axios } = useContext();
+    const { $api } = useContext();
     const footer = useAsync(() =>
-      $axios.$get("/footer", {
+      $api.$get("/footer", {
         params: {
           populate: "*",
         },
       })
     );
     const header = useAsync(() =>
-      $axios.$get("/header", {
+      $api.$get("/header", {
         params: {
           populate: "*",
         },

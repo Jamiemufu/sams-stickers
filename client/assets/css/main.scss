@@ -1,10 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import '_colors.scss';
 
 html {
   body {
-    @apply bg-gray-100;
+    background: $background-dark;
+    color: $grey;
   }
 }

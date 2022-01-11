@@ -14,8 +14,8 @@ export default {
     const stickers = ref();
     const params = queryNestedStickerEntry()
     
-    useFetch(async ( {$axios }) => {
-      const { data: query } = await $axios.$get('/stickers', params)
+    useFetch(async ( {$api }) => {
+      const { data: query } = await $api.$get('/stickers', params)
       stickers.value = flattenStickers(query)
     })
 

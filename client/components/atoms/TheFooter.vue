@@ -1,9 +1,9 @@
 <template>
-  <footer class="[] [ flex flex-wrap justify-between items-center ]">
-    <p v-html="Copyright" class="[] [ text-sm text-gray-700 py-2 ]">
+  <footer class="[ footer ] [ flex flex-wrap justify-between items-center ]">
+    <p v-html="Copyright" class="[] [ text-sm py-2 ]">
       <!-- Copyright text here -->
     </p>
-    <p class="[] [ text-sm text-gray-700 py-2 ]"> 
+    <p class="[] [ text-sm py-2 ]"> 
       Powered by Coffee,
       <a href="#" target="_blank" class="[] [ underline ]">Strapi</a>,
       <a href="#" target="_blank" class="[] [ underline ]">Nuxt</a>
@@ -30,3 +30,9 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+.footer {
+  padding: 10px 15px;
+  color: orange;
+}
+</style>
