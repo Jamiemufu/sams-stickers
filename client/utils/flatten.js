@@ -14,6 +14,19 @@ export function flattenStickers(arr) {
 }
 
 /**
+ * Flatten category
+ * 
+ * @param {*} arr 
+ * @returns 
+ */
+export function flattenCategory(arr) {
+  return arr.map((item) => {
+    item = item.attributes;
+    return item;
+  })
+}
+
+/**
  * Flatten a single sticker
  * (always as array from Strapi)
  * 

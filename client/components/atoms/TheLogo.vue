@@ -28,10 +28,10 @@ export default {
 </script>
 <style lang="scss">
   .logo-header {
-    color: orange;
+    color: white;
 
     &__title {
-      font-size: 24px;
+      font-size: 22px;
     }
   }
 </style>

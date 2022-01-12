@@ -33,7 +33,7 @@ export default {
 <style lang="scss">
 .header {
   width: 100%;
-  padding: 10px 25px;
+  padding: 15px 25px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
